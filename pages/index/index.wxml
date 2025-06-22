@@ -1,0 +1,31 @@
+<!--pages/index/index.wxml-->
+<view class="full-height-container game-container">
+  <!-- Game Canvas -->
+  <canvas
+    canvas-id="gameCanvas"
+    id="gameCanvas"
+    class="game-canvas"
+    style="width: {{canvasWidth}}px; height: {{canvasHeight}}px;"
+    bindtouchstart="handleTouchStart"
+    bindtouchmove="handleTouchMove"
+    bindtouchend="handleTouchEnd"
+    bindtouchcancel="handleTouchEnd">
+  </canvas>
+
+  <!-- On-screen Controls (Optional, if not using touch gestures for everything) -->
+  <view class="controls-overlay">
+    <view class="score-lives-display top-info">
+        <!-- Score and lives are drawn on canvas, but could also be HTML elements -->
+        <!-- <text class="score-text">得分: {{score}}</text> -->
+        <!-- <text class="lives-text score-text">生命: {{lives}}</text> -->
+    </view>
+
+    <view class="action-buttons">
+      <button class="control-button jump-button" bindtap="triggerJump">跳跃</button>
+      <view class="move-buttons">
+        <button class="control-button move-button" bindtouchstart="triggerMoveLeft" bindtouchend="triggerStopMove">左</button>
+        <button class="control-button move-button" bindtouchstart="triggerMoveRight" bindtouchend="triggerStopMove">右</button>
+      </view>
+    </view>
+  </view>
+</view>

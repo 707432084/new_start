@@ -1,0 +1,101 @@
+/* pages/gameover/gameover.wxss */
+.container {
+  background-color: #2c2c2c; /* Darker background for game over screen */
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black panel */
+  padding: 50rpx 40rpx;
+  border-radius: 25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 20px rgba(255,255,255,0.1);
+  width: 90%;
+  max-width: 600rpx;
+}
+
+.game-over-title {
+  color: #FFCC00; /* Golden yellow for "Game Over" */
+  font-size: 60rpx;
+  margin-bottom: 30rpx;
+  text-shadow: 3px 3px 0px #8B0000; /* Dark red shadow */
+}
+
+.status-image {
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 30rpx;
+  /* Add actual paths to win/lose images later */
+}
+
+.final-score {
+  font-size: 42rpx;
+  color: #FFFFFF;
+  margin-bottom: 10rpx;
+}
+
+.high-score {
+  font-size: 32rpx;
+  color: #CCCCCC; /* Lighter grey for high score */
+  margin-bottom: 30rpx;
+}
+
+.message-text {
+  font-size: 28rpx;
+  color: #AFAFAF;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btn {
+  width: 100%; /* Make buttons take full width of their container */
+  margin-top: 25rpx;
+  padding: 25rpx 0; /* More padding for better touch targets */
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.restart-btn {
+  background-color: #4CAF50; /* Green */
+  border-color: #388E3C;
+  box-shadow: 3px 3px 0px #2E7D32;
+}
+.restart-btn:active {
+  background-color: #388E3C;
+}
+
+.rank-btn {
+  background-color: #2196F3; /* Blue */
+  border-color: #1976D2;
+  box-shadow: 3px 3px 0px #1565C0;
+}
+.rank-btn:active {
+  background-color: #1976D2;
+}
+
+.share-btn {
+  background-color: #FF9800; /* Orange */
+  border-color: #F57C00;
+  box-shadow: 3px 3px 0px #E65100;
+}
+.share-btn:active {
+  background-color: #F57C00;
+}
+
+/* .home-btn {
+  background-color: #607D8B;
+  border-color: #455A64;
+  box-shadow: 3px 3px 0px #37474F;
+}
+.home-btn:active {
+  background-color: #455A64;
+} */

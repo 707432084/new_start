@@ -1,0 +1,21 @@
+<!--pages/gameover/gameover.wxml-->
+<view class="container flex-column-center full-height-container">
+  <view class="content-wrapper">
+    <text class="title-text game-over-title">游戏结束</text>
+
+    <image wx:if="{{score > 0}}" class="status-image" src="/images/win.png" mode="aspectFit"></image>
+    <image wx:else class="status-image" src="/images/lose.png" mode="aspectFit"></image> <!-- Placeholder paths -->
+
+    <text class="score-text final-score">你的得分: {{score}}</text>
+    <text class="score-text high-score">最高得分: {{highScore}}</text>
+
+    <view wx:if="{{message}}" class="message-text">{{message}}</view>
+
+    <view class="button-group">
+      <button class="btn restart-btn" bindtap="restartGame">再玩一次</button>
+      <button class="btn rank-btn" bindtap="viewRank">查看排行</button>
+      <button class="btn share-btn" open-type="share">分享战绩</button>
+      <!-- <button class="btn home-btn" bindtap="backToHome">返回首页</button> -->
+    </view>
+  </view>
+</view>

@@ -1,0 +1,72 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+/* Global canvas style for game area */
+.game-canvas {
+  width: 100vw; /* Occupy full viewport width */
+  height: calc(100vh - 100px); /* Adjust height considering other UI elements, e.g., a top bar */
+  /* background-color: #70c5ce; Sky blue, typical Mario background */
+}
+
+page {
+  background-color: #70c5ce; /* Light blue background for all pages, resembling sky */
+  color: #FFFFFF; /* Default text color to white for better contrast on blue */
+  font-family: Arial, sans-serif; /* Basic font */
+}
+
+button {
+  background-color: #f3d900; /* Yellow, like Mario blocks */
+  color: #000000; /* Black text for readability */
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+  margin: 10rpx;
+  font-weight: bold;
+  border: 2px solid #000000; /* Black border for a cartoony feel */
+  box-shadow: 3px 3px 0px #8b4513; /* Brown shadow, like ground blocks */
+}
+
+button:active {
+  background-color: #e0c800; /* Darker yellow on press */
+  box-shadow: 1px 1px 0px #8b4513; /* Reduced shadow on press */
+  transform: translate(2px, 2px); /* Button press effect */
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.title-text {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 0px #000000; /* Black shadow for title */
+  margin-bottom: 30rpx;
+}
+
+.score-text {
+  font-size: 36rpx;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 0px #000000;
+  margin: 10rpx 0;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-height-container {
+  height: 100vh;
+  width: 100vw;
+}

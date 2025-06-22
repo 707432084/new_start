@@ -1,0 +1,54 @@
+<!--pages/rank/rank.wxml-->
+<view class="container full-height-container">
+  <view class="header-bar">
+    <button class="back-button" bindtap="goBack">返回</button>
+    <text class="title-text page-title">排行榜</text>
+  </view>
+
+  <view class="rank-content">
+    <!-- Loading State -->
+    <view wx:if="{{isLoading}}" class="loading-state">
+      <text>加载中...</text>
+    </view>
+
+    <!-- Error State -->
+    <view wx:if="{{!isLoading && error}}" class="error-state">
+      <text>{{error}}</text>
+      <button bindtap="getServerRank">重试</button>
+    </view>
+
+    <!-- Friend Ranking via Open Data Canvas -->
+    <view wx:if="{{useOpenData && !error}}" class="rank-section friend-rank-section">
+      <text class="rank-section-title">好友排行</text>
+      <view class="canvas-wrapper">
+        <canvas type="2d" id="rankCanvas" canvas-id="rankCanvas" class="rank-canvas-friend"></canvas>
+      </view>
+      <!-- Info about open data limitations or if it's empty -->
+      <view class="open-data-info" wx:if="{{!isLoading && !friendRankList.length}}">
+         <!-- This message might be redundant if open data domain handles empty state -->
+         <!-- <text>好友排行需要授权，或暂无好友数据。</text> -->
+      </view>
+    </view>
+
+    <!-- Server Ranking (Global or All Players) -->
+    <view wx:if="{{!isLoading && !error && serverRankList.length > 0}}" class="rank-section server-rank-section">
+      <text class="rank-section-title">全球排行</text>
+      <scroll-view scroll-y="true" class="rank-scroll-view">
+        <view class="rank-list">
+          <view wx:for="{{serverRankList}}" wx:key="openid" class="rank-item {{item.isCurrentUser ? 'my-rank-item' : ''}}">
+            <text class="rank-position">{{index + 1}}</text>
+            <image class="avatar" src="{{item.avatarUrl || '/images/avatar_placeholder.png'}}" mode="aspectFill"></image>
+            <text class="nickname">{{item.nickname}}</text>
+            <text class="score">{{item.score}}分</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- Empty state for server rank if open data is also empty or not used -->
+    <view wx:if="{{!isLoading && !error && !serverRankList.length && (!useOpenData || !friendRankList.length)}}" class="empty-state">
+        <text>暂无排行数据</text>
+    </view>
+
+  </view>
+</view>

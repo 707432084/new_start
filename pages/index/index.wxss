@@ -1,0 +1,102 @@
+/* pages/index/index.wxss */
+page {
+  overflow: hidden; /* Prevent scrollbars on the page itself */
+  height: 100vh;
+}
+
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align canvas to top */
+  background-color: #333; /* Fallback background for the container */
+  position: relative; /* For positioning overlay controls */
+}
+
+.game-canvas {
+  /* width and height are set dynamically via style attribute in WXML */
+  /* background-color is handled by canvas drawing operations */
+  border: 1px solid #000; /* Optional: for visual debugging */
+}
+
+.controls-overlay {
+  position: absolute;
+  bottom: 20rpx; /* Position controls at the bottom */
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+  z-index: 10; /* Ensure controls are above the canvas */
+}
+
+.top-info {
+  position: absolute;
+  top: 10rpx; /* Adjust if canvas doesn't start from very top of screen */
+  left: 10rpx;
+  right: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 32rpx;
+  text-shadow: 1px 1px 2px black;
+  z-index: 11; /* Above canvas, below other controls if they overlap */
+}
+
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 600rpx; /* Max width for buttons on larger screens */
+}
+
+.move-buttons {
+  display: flex;
+}
+
+.control-button {
+  padding: 20rpx 30rpx;
+  font-size: 32rpx;
+  margin: 0 15rpx;
+  background-color: #FF5722; /* Mario-like orange/red for buttons */
+  color: white;
+  border: 2px solid #FFFFFF;
+  border-radius: 15rpx;
+  box-shadow: 3px 3px 0px #8B4513; /* Brown shadow */
+}
+
+.control-button:active {
+  background-color: #E64A19;
+  box-shadow: 1px 1px 0px #8B4513; /* Reduced shadow on press */
+  transform: translate(2px, 2px); /* Button press effect */
+}
+
+.jump-button {
+  background-color: #4CAF50; /* Green for jump */
+}
+.jump-button:active {
+  background-color: #388E3C;
+}
+
+
+.game-over-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.7);
+  padding: 40rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  z-index: 20;
+}
+
+.game-over-message .title-text {
+  margin-bottom: 30rpx;
+}

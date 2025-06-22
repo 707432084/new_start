@@ -1,0 +1,165 @@
+/* pages/rank/rank.wxss */
+.container {
+  background-color: #3a3a3a; /* Dark background for rank page */
+  display: flex;
+  flex-direction: column;
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #2c2c2c; /* Slightly darker header */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* For centering title */
+}
+
+.back-button {
+  background-color: #555;
+  color: white;
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+  border-radius: 8rpx;
+  position: absolute;
+  left: 20rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0; /* Reset default button margin */
+  border: none;
+  box-shadow: none;
+}
+.back-button:active{
+  background-color: #444;
+}
+
+
+.page-title {
+  /* title-text is global, using it here */
+  font-size: 36rpx; /* Override global if needed */
+  text-align: center;
+  flex-grow: 1; /* Allow title to take space and center */
+  color: #FFD700; /* Gold color for title */
+}
+
+.rank-content {
+  flex-grow: 1;
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  overflow-y: auto; /* Allow content to scroll if it overflows */
+}
+
+.loading-state, .error-state, .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50rpx;
+  color: #ccc;
+  font-size: 32rpx;
+}
+.error-state button {
+  margin-top: 20rpx;
+  background-color: #f44336; /* Red for error retry */
+}
+
+.rank-section {
+  margin-bottom: 40rpx;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20rpx;
+  border-radius: 15rpx;
+}
+
+.rank-section-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #FFB300; /* Amber/Orange for section titles */
+  margin-bottom: 20rpx;
+  display: block;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10rpx;
+}
+
+/* Friend Rank Specific */
+.friend-rank-section .canvas-wrapper {
+  width: 100%;
+  /* Height should be determined by how much content you expect from open data */
+  /* Or make it scrollable if content can be very long */
+  height: 600rpx; /* Example fixed height, adjust as needed */
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 10rpx;
+  overflow: hidden; /* Clip canvas if it tries to be larger */
+}
+.rank-canvas-friend {
+  width: 100%;
+  height: 100%; /* Canvas takes full size of its wrapper */
+}
+.open-data-info {
+  text-align: center;
+  color: #aaa;
+  font-size: 26rpx;
+  margin-top: 15rpx;
+}
+
+
+/* Server Rank Specific */
+.rank-scroll-view {
+  height: 600rpx; /* Max height for scrollable area, adjust as needed */
+  /* Or make it flex-grow if it's the only list */
+}
+
+.rank-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.rank-item {
+  display: flex;
+  align-items: center;
+  padding: 15rpx 10rpx;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #E0E0E0; /* Light grey for text */
+}
+.rank-item:last-child {
+  border-bottom: none;
+}
+
+.rank-position {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #FFD700; /* Gold for rank position */
+  margin-right: 20rpx;
+  width: 40rpx; /* Fixed width for alignment */
+  text-align: center;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  background-color: #555; /* Placeholder background */
+}
+
+.nickname {
+  flex-grow: 1;
+  font-size: 30rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.score {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #4CAF50; /* Green for score */
+}
+
+.my-rank-item {
+  background-color: rgba(76, 175, 80, 0.2); /* Highlight for current user's rank */
+  border-left: 5px solid #4CAF50;
+  padding-left: 15rpx; /* Adjust padding for border */
+}
